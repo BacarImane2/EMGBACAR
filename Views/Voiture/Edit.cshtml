@@ -1,0 +1,47 @@
+@model EMGBACAR.Models.Voiture
+
+@{
+    ViewData["Title"] = "Modifier la voiture";
+}
+
+<h1>Modifier la voiture</h1>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Nom" class="control-label">Modèle</label>
+        <input asp-for="Nom" class="form-control" />
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MarqueId" class="control-label">Marque</label>
+        <select asp-for="MarqueId" class="form-control" asp-items="@(new SelectList(ViewBag.Marques, "Id", "Nom"))"></select>
+        <span asp-validation-for="MarqueId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Annee" class="control-label"></label>
+        <input asp-for="Annee" class="form-control" />
+        <span asp-validation-for="Annee" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prix" class="control-label"></label>
+        <input asp-for="Prix" class="form-control" />
+        <span asp-validation-for="Prix" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EstVendue" class="control-label">Vendue</label>
+        <input asp-for="EstVendue" class="form-check-input" type="checkbox" />
+        <span asp-validation-for="EstVendue" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EstIndisponible" class="control-label">disponible</label>
+        <input asp-for="EstIndisponible" class="form-check-input" type="checkbox" />
+        <span asp-validation-for="EstIndisponible" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a asp-action="Index" class="btn btn-secondary">Annuler</a>
+</form>

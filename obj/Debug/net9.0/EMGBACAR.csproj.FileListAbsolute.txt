@@ -210,3 +210,12 @@
 /Users/imanebacar/Desktop/NewProjet/EMGBACAR/obj/Debug/net9.0/EMGBACAR.pdb
 /Users/imanebacar/Desktop/NewProjet/EMGBACAR/obj/Debug/net9.0/EMGBACAR.genruntimeconfig.cache
 /Users/imanebacar/Desktop/NewProjet/EMGBACAR/obj/Debug/net9.0/ref/EMGBACAR.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/Microsoft.IdentityModel.Logging.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/Microsoft.IdentityModel.Tokens.dll
+/Users/imanebacar/Desktop/NewProjet/EMGBACAR/bin/Debug/net9.0/System.IdentityModel.Tokens.Jwt.dll

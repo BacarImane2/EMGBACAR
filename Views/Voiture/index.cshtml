@@ -1,0 +1,45 @@
+@model IEnumerable<EMGBACAR.Models.Voiture>
+
+@{
+    ViewData["Title"] = "Inventaire des Voitures";
+}
+
+<h1>Inventaire des Voitures</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Modèle</th>
+            <th>Marque</th>
+            <th>Année</th>
+            <th>Prix</th>
+            <th>Description</th>
+            <th>Vendue</th>
+            <th>disponible</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var voiture in Model)
+        {
+            <tr>
+                <td>@voiture.Nom</td>
+                <td>@voiture.Marque?.Nom</td>
+                <td>@voiture.Annee</td>
+                <td>@voiture.Prix.ToString("C")</td>
+                <td>@voiture.Description</td>
+                <td style="color: @(voiture.EstVendue ? "green" : "red")">
+                    @(voiture.EstVendue ? "Oui" : "Non")
+                </td>
+                <td style="color: @(voiture.EstIndisponible ? "green" : "red")">
+                    @(voiture.EstIndisponible ? "Oui" : "Non")
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@voiture.Id" class="btn btn-warning">Modifier</a>
+                    <a asp-action="Details" asp-route-id="@voiture.Id" class="btn btn-info">Détails</a>
+                    <a asp-action="Delete" asp-route-id="@voiture.Id" class="btn btn-danger">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

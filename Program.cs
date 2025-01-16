@@ -29,6 +29,6 @@ app.UseAuthorization();
 // Configure la route par défaut pour les contrôleurs
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Voiture}/{action=Index}/{id?}");
 
 app.Run();
