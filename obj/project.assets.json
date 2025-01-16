@@ -1,13 +1,6 @@
 {
   "version": 3,
   "targets": {
-<<<<<<< HEAD
-    "net9.0": {}
-  },
-  "libraries": {},
-  "projectFileDependencyGroups": {
-    "net9.0": []
-=======
     "net9.0": {
       "Humanizer.Core/2.14.1": {
         "type": "package",
@@ -3115,7 +3108,6 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.1"
     ]
->>>>>>> 388a0fd ( migration avec la base de donner sqllite)
   },
   "packageFolders": {
     "/Users/imanebacar/.nuget/packages/": {}
@@ -3159,8 +3151,6 @@
     "frameworks": {
       "net9.0": {
         "targetAlias": "net9.0",
-<<<<<<< HEAD
-=======
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
@@ -3173,7 +3163,6 @@
             "version": "[9.0.1, )"
           }
         },
->>>>>>> 388a0fd ( migration avec la base de donner sqllite)
         "imports": [
           "net461",
           "net462",

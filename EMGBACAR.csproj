@@ -6,8 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-<<<<<<< HEAD
-=======
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.1">
@@ -16,5 +14,4 @@
     </PackageReference>
   </ItemGroup>
 
->>>>>>> 388a0fd ( migration avec la base de donner sqllite)
 </Project>
