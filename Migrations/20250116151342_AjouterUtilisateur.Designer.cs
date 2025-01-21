@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMGBACAR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250116145005_AjouterUtilisateur")]
+    [Migration("20250116151342_AjouterUtilisateur")]
     partial class AjouterUtilisateur
     {
         /// <inheritdoc />
@@ -43,6 +43,28 @@ namespace EMGBACAR.Migrations
                             Id = 2,
                             Nom = "Honda"
                         });
+                });
+
+            modelBuilder.Entity("EMGBACAR.Models.Utilisateur", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("EstAdmin")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("MotDePasse")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Utilisateurs");
                 });
 
             modelBuilder.Entity("EMGBACAR.Models.Voiture", b =>

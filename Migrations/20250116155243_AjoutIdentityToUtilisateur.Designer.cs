@@ -3,6 +3,7 @@ using System;
 using EMGBACAR.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EMGBACAR.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250116155243_AjoutIdentityToUtilisateur")]
+    partial class AjoutIdentityToUtilisateur
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -40,53 +43,14 @@ namespace EMGBACAR.Migrations
                         {
                             Id = 2,
                             Nom = "Honda"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Nom = "Ford"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Nom = "Chevrolet"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Nom = "Nissan"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Nom = "BMW"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Nom = "Mercedes-Benz"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Nom = "Hyundai"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Nom = "Kia"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Nom = "Volkswagen"
                         });
                 });
 
             modelBuilder.Entity("EMGBACAR.Models.Utilisateur", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
@@ -95,6 +59,7 @@ namespace EMGBACAR.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("EmailConfirmed")
@@ -107,6 +72,10 @@ namespace EMGBACAR.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MotDePasse")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedEmail")
