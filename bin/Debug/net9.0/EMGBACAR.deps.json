@@ -11,7 +11,8 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "9.0.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.1",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.1",
-          "Microsoft.EntityFrameworkCore.Tools": "9.0.1"
+          "Microsoft.EntityFrameworkCore.Tools": "9.0.1",
+          "Microsoft.Extensions.Logging": "9.0.1"
         },
         "runtime": {
           "EMGBACAR.dll": {}

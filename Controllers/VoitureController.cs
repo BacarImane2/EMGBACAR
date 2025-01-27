@@ -1,5 +1,6 @@
 using EMGBACAR.Data;
 using EMGBACAR.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,7 +14,7 @@ namespace EMGBACAR.Controllers
         {
             _context = context;
         }
-        
+
         // GET: Voiture/Index
         public async Task<IActionResult> Index()
         {
@@ -35,6 +36,7 @@ namespace EMGBACAR.Controllers
         }
 
         // GET: Voiture/Edit/5
+        [Authorize(Roles = "Admin")]  // Seuls les utilisateurs avec le rôle "Admin" peuvent accéder
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null) return NotFound();
@@ -50,6 +52,7 @@ namespace EMGBACAR.Controllers
         // POST: Voiture/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]  // Vérification d'authentification également pour la soumission du formulaire
         public async Task<IActionResult> Edit(int id, Voiture voiture)
         {
             if (id != voiture.Id) return NotFound();
@@ -60,6 +63,7 @@ namespace EMGBACAR.Controllers
                 {
                     _context.Update(voiture);
                     await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "La voiture a été modifiée avec succès !";  // Message de succès
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -74,38 +78,43 @@ namespace EMGBACAR.Controllers
             return View(voiture);
         }
 
-        /// GET: Voiture/Delete/5
-public async Task<IActionResult> Delete(int? id)
-{
-    if (id == null)
-        return NotFound();
+        // GET: Voiture/Delete/5
+        [Authorize(Roles = "Admin")]  // Seuls les utilisateurs avec le rôle "Admin" peuvent accéder
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+                return NotFound();
 
-    var voiture = await _context.Voitures
-        .Include(v => v.Marque)
-        .FirstOrDefaultAsync(m => m.Id == id);
+            var voiture = await _context.Voitures
+                .Include(v => v.Marque)
+                .FirstOrDefaultAsync(m => m.Id == id);
 
-    if (voiture == null)
-        return NotFound();
+            if (voiture == null)
+                return NotFound();
 
-    return View(voiture);
-}
+            return View(voiture);
+        }
 
-// POST: Voiture/DeleteConfirmed/5
-[HttpPost]
-[ValidateAntiForgeryToken]
-public async Task<IActionResult> DeleteConfirmed(int id)
-{
-    var voiture = await _context.Voitures.FindAsync(id);
-    if (voiture != null)
-    {
-        _context.Voitures.Remove(voiture);
-        await _context.SaveChangesAsync();
-    }
+        // POST: Voiture/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]  // Seuls les utilisateurs avec le rôle "Admin" peuvent accéder
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var voiture = await _context.Voitures.FindAsync(id);
+            if (voiture != null)
+            {
+                _context.Voitures.Remove(voiture);
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "La voiture a été supprimée avec succès !";  // Message de succès
+            }
 
-    return RedirectToAction(nameof(Index));
-}
+            return RedirectToAction(nameof(Index));
+        }
 
-         public IActionResult Create()
+        // GET: Voiture/Create
+        [Authorize(Roles = "Admin")]  // Seuls les administrateurs peuvent créer une voiture
+        public IActionResult Create()
         {
             ViewBag.Marques = _context.Marques.ToList(); // Charger les marques pour la liste déroulante
             return View();
@@ -114,18 +123,19 @@ public async Task<IActionResult> DeleteConfirmed(int id)
         // POST: Voiture/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]  // Seuls les administrateurs peuvent créer une voiture
         public async Task<IActionResult> Create(Voiture voiture)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(voiture);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "La voiture a été ajoutée avec succès !";  // Message de succès
                 return RedirectToAction(nameof(Index)); // Redirection vers Home/Index après création
             }
 
             ViewBag.Marques = _context.Marques.ToList(); // Recharger les marques en cas d'erreur
             return View(voiture);
         }
-    
     }
 }

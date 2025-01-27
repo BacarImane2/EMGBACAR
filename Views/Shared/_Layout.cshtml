@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,19 +24,37 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Voiture" asp-action="Index">Liste des voitures</a>
                         </li>
-                        <!-- Lien pour ajouter une voiture -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Voiture" asp-action="Create">Ajouter une voiture</a>
-                        </li>
-                        <!-- Lien pour se connecter -->
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Se connecter</a>
-                        </li>
+
+                          @if (User.Identity.IsAuthenticated)
+                        {
+
+                            <!-- Si l'utilisateur est admin, afficher l'option Ajouter une voiture -->
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Voiture" asp-action="Create">Ajouter une voiture</a>
+                                </li>
+                            }
+
+                            <!-- Lien de déconnexion -->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Se déconnecter</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <!-- Si l'utilisateur n'est pas connecté, afficher le lien pour se connecter -->
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Se connecter</a>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -47,6 +66,7 @@
             &copy; 2025 - EMGBACAR
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

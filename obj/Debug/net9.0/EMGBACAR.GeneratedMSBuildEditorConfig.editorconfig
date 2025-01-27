@@ -28,12 +28,12 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/Users/imanebacar/Desktop/NewProjet/EMGBACAR/Views/Account/CreerCompte.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9DcmVlckNvbXB0ZS5jc2h0bWw=
+[/Users/imanebacar/Desktop/NewProjet/EMGBACAR/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/imanebacar/Desktop/NewProjet/EMGBACAR/Views/Account/SeConnecter.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9TZUNvbm5lY3Rlci5jc2h0bWw=
+[/Users/imanebacar/Desktop/NewProjet/EMGBACAR/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/imanebacar/Desktop/NewProjet/EMGBACAR/Views/Shared/Error.cshtml]
