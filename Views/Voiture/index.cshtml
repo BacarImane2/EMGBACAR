@@ -7,45 +7,62 @@
 
 <h1>Inventaire des Voitures</h1>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Modèle</th>
-            <th>Marque</th>
-            <th>Année</th>
-            <th>Prix</th>
-            <th>Description</th>
-            <th>Vendue</th>
-            <th>Disponible</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var voiture in Model)
-        {
-            <tr>
-                <td>@voiture.Nom</td>
-                <td>@voiture.Marque?.Nom</td>
-                <td>@voiture.Annee</td>
-                <td>@voiture.Prix.ToString("C")</td>
-                <td>@voiture.Description</td>
-                <td style="color: @(voiture.EstVendue ? "green" : "red")">
-                    @(voiture.EstVendue ? "Oui" : "Non")
-                </td>
-                <td style="color: @(voiture.EstIndisponible ? "green" : "red")">
-                    @(voiture.EstIndisponible ? "Oui" : "Non")
-                </td>
-               <td>
-    <a asp-action="Details" asp-route-id="@voiture.Id" class="btn btn-info">Détails</a>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
 
-            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+<div class="bg-light p-4">
+    @if (!Model.Any())  
+    {
+        <div class="alert alert-warning">
+            Aucune voiture disponible.
+        </div>
+    }
+    else
+    {
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            @foreach (var voiture in Model)
             {
-                <a asp-action="Edit" asp-route-id="@voiture.Id" class="btn btn-warning">Modifier</a>
-                <a asp-action="Delete" asp-route-id="@voiture.Id" class="btn btn-danger">Supprimer</a>
-            }
-            </td>
+                <div class="col">
+                    <div class="card shadow-sm border-0 h-100" style="background-color: #fdfdfd;">
+                        <div class="card-body">
+                            <h5 class="card-title">@voiture.Nom</h5>
+                            <h6 class="card-subtitle text-muted mb-3">@voiture.Marque?.Nom</h6>
+                            <ul class="list-unstyled">
+                                <li><strong>Année :</strong> @voiture.Annee</li>
+                                <li><strong>Prix :</strong> @voiture.Prix.ToString("#,##0 F CFA")</li>
+                                <li><strong>Description :</strong> @voiture.Description</li>
+                                <li style="color: @(voiture.EstVendue ? "red" : "green")">
+                                    <strong>Vendue :</strong> @(voiture.EstVendue ? "Oui" : "Non")
+                                </li>
+                                <li style="color: @(voiture.EstIndisponible ? "green" : " red")">
+                                    <strong>Indisponible :</strong> @(voiture.EstIndisponible ? " Non" : "Oui")
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer bg-white border-0">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <a asp-action="Details" asp-route-id="@voiture.Id" class="btn btn-info btn-sm w-100">Détails</a>
+                                </div>
 
-            </tr>
-        }
-    </tbody>
-</table>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+                                    <div class="col text-center">
+                                        <a asp-action="Edit" asp-route-id="@voiture.Id" class="btn btn-warning btn-sm w-100">Modifier</a>
+                                    </div>
+                                    <div class="col text-center">
+                                        <a asp-action="Delete" asp-route-id="@voiture.Id" class="btn btn-danger btn-sm w-100">Supprimer</a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
