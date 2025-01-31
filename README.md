@@ -11,6 +11,9 @@ L'application EMGBACAR est déployée sur Azure. Vous pouvez y accéder directem
 URL de l'application déployée :
 https://emgbacar.azurewebsites.net/
 
+Connexion : 
+- Admin : admin@emgb.com / Admin@123
+
 Prérequis :
 Avant d'exécuter l'application, assurez-vous d'avoir installé :
 
@@ -33,7 +36,7 @@ Exécution :
     http://localhost:<port>
 
 Connexion : 
-- Admin : admin@example.com / Admin@123
+- Admin : admin@emgb.com / Admin@123
 
 - Utilisateur standard : Vous pouvez créer un compte via la page d'inscription.
 
