@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Configuration de la base de données avec SQLite
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Configuration des services d'ASP.NET Identity
 builder.Services.AddIdentity<Utilisateur, IdentityRole>(options =>
@@ -48,13 +48,13 @@ using (var scope = app.Services.CreateScope())
         }
 
         // Créer l'utilisateur admin s'il n'existe pas
-        var adminUser = await userManager.FindByEmailAsync("admin@example.com");
+        var adminUser = await userManager.FindByEmailAsync("admin@emgb.com");
         if (adminUser == null)
         {
             adminUser = new Utilisateur
             {
-                UserName = "admin@example.com",
-                Email = "admin@example.com",
+                UserName = "admin@emgb.com",
+                Email = "admin@emgb.com",
                 EmailConfirmed = true,
             };
             var result = await userManager.CreateAsync(adminUser, "Admin@123");

@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EMGBACAR.Models
 {
@@ -13,6 +14,7 @@ namespace EMGBACAR.Models
         public int Annee { get; set; } 
 
         [Required]
+        [Column(TypeName = "DECIMAL(18,2)")]
         [Range(0, double.MaxValue, ErrorMessage = "Le prix doit être positif.")]
         public decimal Prix { get; set; } 
         [Required]

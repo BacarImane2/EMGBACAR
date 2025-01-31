@@ -14,6 +14,11 @@ namespace EMGBACAR.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+             modelBuilder.Entity<Voiture>()
+                .Property(v => v.Prix)
+                .HasColumnType("DECIMAL(18,2)");
+
             base.OnModelCreating(modelBuilder);
 
             // Créer des rôles par défaut avec des noms fixes
@@ -39,13 +44,6 @@ namespace EMGBACAR.Data
                 new Marque { Id = 13, Nom = "Subaru" },
                 new Marque { Id = 14, Nom = "Porsche" },
                 new Marque { Id = 15, Nom = "Tesla" }
-            );
-
-
-            // Créer des voitures avec des Ids fixes et des données statiques
-            modelBuilder.Entity<Voiture>().HasData(
-                new Voiture { Id = 1, Nom = "Corolla", Annee = 2022, Prix = 15000, Description = "Voiture fiable", EstVendue = false, EstIndisponible = false, MarqueId = 1 },
-                new Voiture { Id = 2, Nom = "Civic", Annee = 2023, Prix = 18000, Description = "Compact moderne", EstVendue = false, EstIndisponible = false, MarqueId = 2 }
             );
     }
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EMGBACAR")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e6d35f1d2adb1f0422124df0216734de8592ed16")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0893a39713a3a5e7d44512d539db26c22d35b300")]
 [assembly: System.Reflection.AssemblyProductAttribute("EMGBACAR")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EMGBACAR")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
