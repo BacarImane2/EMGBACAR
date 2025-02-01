@@ -3,7 +3,7 @@ EMGBACAR - Système de Gestion d'Inventaire de Voitures
 
 Description
 
-EMGBACAR est une application de gestion d'inventaire de voitures d'occasion. Elle permet d'ajouter, modifier, afficher et marquer les voitures comme vendues ou indisponibles. L'application utilise le framework ASP.NET Core MVC avec SQLite comme base de données.
+EMGBACAR est une application de gestion d'inventaire de voitures d'occasion. Elle permet d'ajouter, modifier, afficher et marquer les voitures comme vendues ou indisponibles. L'application utilise le framework ASP.NET Core MVC avec SQLserver comme base de données.
 
 Déploiement sur Azure : 
 L'application EMGBACAR est déployée sur Azure. Vous pouvez y accéder directement à l'adresse suivante :
