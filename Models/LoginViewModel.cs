@@ -6,13 +6,13 @@ namespace EMGBACAR.Models
     {
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public required string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public required string Password { get; set; }
 
         [Display(Name = "Se souvenir de moi")]
-        public bool RememberMe { get; set; }
+        public required bool RememberMe { get; set; }
     }
 }

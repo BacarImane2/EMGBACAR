@@ -49,7 +49,7 @@
                                     <a asp-action="Details" asp-route-id="@voiture.Id" class="btn btn-info btn-sm w-100">Détails</a>
                                 </div>
 
-                                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            @if (User.Identity != null && User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                                 {
                                     <div class="col text-center">
                                         <a asp-action="Edit" asp-route-id="@voiture.Id" class="btn btn-warning btn-sm w-100">Modifier</a>
