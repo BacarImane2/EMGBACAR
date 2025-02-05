@@ -33,7 +33,7 @@ Exécution :
     dotnet run
 
 - Ouvrez votre navigateur et accédez à :
-    http://localhost:<port>
+    http://localhost:port
 
 Connexion : 
 - Admin : admin@emgb.com / Admin@123
